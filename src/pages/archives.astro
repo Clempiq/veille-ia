@@ -1,0 +1,45 @@
+---
+import Base from "../layouts/Base.astro";
+import { editions, shortDate, monthLabel, ANGLES } from "../lib/editions.js";
+const months = [];
+for (const e of editions) {
+  const m = monthLabel(e.date);
+  if (!months.length || months.at(-1).label !== m) months.push({ label: m, items: [] });
+  months.at(-1).items.push(e);
+}
+const total = editions.reduce((n, e) => n + e.items.length, 0);
+---
+<Base title="Archives" description="Toutes les éditions de la veille IA quotidienne, jour par jour.">
+  <p class="eyebrow">{editions.length} édition{editions.length > 1 ? "s" : ""} · {total} actus</p>
+  <h1>Archives</h1>
+  {months.map((m) => (
+    <section>
+      <h2>{m.label.replace(/^./, (c) => c.toUpperCase())}</h2>
+      <ul>
+        {m.items.map((e) => (
+          <li>
+            <a href={`/edition/${e.date}`}>
+              <span class="d">{shortDate(e.date)}</span>
+              <span class="body">
+                <span class="titles">{e.items.slice(0, 3).map((i) => i.title).join(" · ") || "Journée calme"}</span>
+                <span class="tags">{Object.keys(ANGLES).filter((k) => e.items.some((i) => i.angle === k)).map((k) => <span class={`tag ${k}`}>{ANGLES[k].label}</span>)}</span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+</Base>
+<style>
+  h1 { font-size: 42px; margin: 10px 0 24px; }
+  h2 { font-size: 20px; margin: 32px 0 6px; }
+  ul { list-style: none; padding: 0; margin: 0; }
+  a { display: grid; grid-template-columns: 90px 1fr; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--rule); color: var(--ink); text-decoration: none; }
+  a:hover .titles { text-decoration: underline; }
+  .d { font: 500 13px/1.6 var(--mono); color: var(--ink-2); }
+  .body { display: flex; flex-direction: column; gap: 8px; }
+  .titles { font-size: 16px; line-height: 1.45; }
+  .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  @media (max-width: 520px) { a { grid-template-columns: 1fr; gap: 4px; } }
+</style>

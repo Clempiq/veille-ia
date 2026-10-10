@@ -1,0 +1,16 @@
+{
+  "name": "veille-ia",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "node scripts/check-editions.mjs && astro build",
+    "check": "node scripts/check-editions.mjs",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.3.8"
+  }
+}

@@ -1,0 +1,35 @@
+---
+import Base from "../layouts/Base.astro";
+---
+<Base title="À propos et méthode" description="Comment est faite la veille IA quotidienne du Fil IA : sources, sélection, règles de rédaction.">
+  <p class="eyebrow">À propos</p>
+  <h1>Comment est fait Le Fil IA</h1>
+  <div class="prose">
+    <p>Le Fil IA est une veille quotidienne sur l'intelligence artificielle, en français, pensée pour celles et ceux qui fabriquent : développeurs, product owners, makers no-code et créateurs de contenu. Elle est publiée chaque matin.</p>
+    <h2>Une veille préparée par un agent, cadrée par un humain</h2>
+    <p>La recherche et la rédaction sont faites chaque matin par Claude, l'assistant d'Anthropic, à partir de recherches web en français et en anglais. Les règles de sélection, de vérification et de style sont écrites et maintenues par Clément Piquenet, qui a conçu le projet. Nous l'écrivons clairement parce qu'une veille sur l'IA faite par une IA doit le dire.</p>
+    <h2>Les règles</h2>
+    <ul>
+      <li><strong>Fraîcheur avant volume.</strong> Seules les actus des dernières 24 à 48 heures entrent. Un matin calme donne une édition courte, sans remplissage.</li>
+      <li><strong>Pas de redite.</strong> Un sujet déjà publié ne revient que s'il y a un développement réellement nouveau.</li>
+      <li><strong>Toujours une source.</strong> Chaque actu renvoie aux articles ou annonces d'origine, obtenus par recherche, jamais reconstruits de mémoire.</li>
+      <li><strong>Nos mots, leurs articles.</strong> Les résumés sont rédigés par nous et restent courts. Pour le détail, lisez les sources : c'est leur travail.</li>
+      <li><strong>Les réserves comptent.</strong> Quand un chiffre vient de l'éditeur seul ou qu'un produit n'est pas encore testé, nous le disons.</li>
+    </ul>
+    <h2>Les trois thèmes</h2>
+    <ul>
+      <li><span class="tag outils">Nouveaux outils</span> apps, plateformes et modèles qui sortent.</li>
+      <li><span class="tag dev">Dev, produit, no-code</span> ce qui change le quotidien d'un dev, d'un PO ou d'un maker.</li>
+      <li><span class="tag creation">Création de contenu</span> vidéo, voix, montage, TikTok et YouTube.</li>
+    </ul>
+    <h2>Une erreur ?</h2>
+    <p>Une actu mal résumée ou une source cassée peut arriver. Le code du site est public sur <a href="https://github.com/Clempiq/veille-ia">GitHub</a>, les signalements sont bienvenus.</p>
+  </div>
+</Base>
+<style>
+  h1 { font-size: clamp(32px, 6vw, 44px); margin: 10px 0 20px; }
+  .prose h2 { font-size: 22px; margin: 32px 0 8px; }
+  .prose ul { padding-left: 20px; }
+  .prose li { margin: 8px 0; }
+  .prose .tag { margin-right: 6px; }
+</style>

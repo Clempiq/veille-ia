@@ -1,0 +1,22 @@
+---
+import Base from "../../layouts/Base.astro";
+import Edition from "../../components/Edition.astro";
+import { editions, longDate } from "../../lib/editions.js";
+export function getStaticPaths() {
+  return editions.map((edition) => ({ params: { date: edition.date }, props: { edition } }));
+}
+const { edition } = Astro.props;
+const ld = {
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  headline: `Veille IA du ${longDate(edition.date)}`,
+  datePublished: `${edition.date}T07:00:00+02:00`,
+  inLanguage: "fr-FR",
+  description: edition.intro,
+  publisher: { "@type": "Organization", name: "Le Fil IA" },
+};
+---
+<Base title={`Veille IA du ${longDate(edition.date)}`} description={edition.intro.slice(0, 155)}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(ld)} />
+  <Edition edition={edition} />
+</Base>

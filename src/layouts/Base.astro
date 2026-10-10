@@ -1,0 +1,129 @@
+---
+const { title, description, canonical } = Astro.props;
+const siteName = "Le Fil IA";
+const fullTitle = title ? `${title} · ${siteName}` : `${siteName} · la veille IA du jour, en français`;
+const desc = description ?? "Chaque matin, les actualités IA des dernières 48 heures, triées et résumées en français : nouveaux outils, dev et produit, création de contenu.";
+const url = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+---
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={url} />
+    <link rel="alternate" type="application/rss+xml" title={siteName} href="/rss.xml" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:url" content={url} />
+    <meta property="og:locale" content="fr_FR" />
+    <meta name="theme-color" content="#f5f1e8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#14130f" media="(prefers-color-scheme: dark)" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip" href="#contenu">Aller au contenu</a>
+    <header class="masthead">
+      <div class="wrap masthead-row">
+        <a class="brand" href="/" aria-label="Le Fil IA, accueil">
+          <span class="brand-mark" aria-hidden="true"></span>
+          Le Fil IA
+        </a>
+        <nav aria-label="Navigation principale">
+          <a href="/" aria-current={path === "/" ? "page" : undefined}>Aujourd'hui</a>
+          <a href="/archives" aria-current={path.startsWith("/archives") ? "page" : undefined}>Archives</a>
+          <a href="/a-propos" aria-current={path.startsWith("/a-propos") ? "page" : undefined}>À propos</a>
+        </nav>
+      </div>
+    </header>
+    <main id="contenu" class="wrap">
+      <slot />
+    </main>
+    <footer class="foot">
+      <div class="wrap foot-row">
+        <p>Le Fil IA, veille quotidienne préparée avec Claude et publiée chaque matin. Chaque actu renvoie à ses sources : les résumés sont les nôtres, les articles sont ceux des médias cités.</p>
+        <p><a href="/rss.xml">Flux RSS</a> · <a href="/a-propos">Méthode</a></p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --paper: #f5f1e8;
+    --paper-2: #ece6d8;
+    --ink: #1b1a17;
+    --ink-2: #57534a;
+    --rule: #d6cfbe;
+    --link: #1d4d8f;
+    --c-outils: #0f6b5c;
+    --c-dev: #3d3aa8;
+    --c-creation: #b4441c;
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14130f;
+      --paper-2: #1e1c17;
+      --ink: #ece7db;
+      --ink-2: #a8a294;
+      --rule: #34312a;
+      --link: #8db4ef;
+      --c-outils: #4fc1ac;
+      --c-dev: #9d9bf2;
+      --c-creation: #f08a5d;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14130f; --paper-2: #1e1c17; --ink: #ece7db; --ink-2: #a8a294; --rule: #34312a;
+    --link: #8db4ef; --c-outils: #4fc1ac; --c-dev: #9d9bf2; --c-creation: #f08a5d; color-scheme: dark;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 17px/1.6 var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--link); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 2px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+  .skip { position: absolute; left: -9999px; }
+  .skip:focus { left: 16px; top: 8px; background: var(--ink); color: var(--paper); padding: 6px 10px; z-index: 10; }
+
+  .masthead { border-bottom: 1px solid var(--rule); }
+  .masthead-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; flex-wrap: wrap; }
+  .brand { font: 650 22px/1 var(--serif); color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; letter-spacing: -0.01em; }
+  .brand-mark { width: 14px; height: 14px; border-radius: 50%; background: conic-gradient(var(--c-outils) 0 33%, var(--c-dev) 0 66%, var(--c-creation) 0); }
+  nav { display: flex; gap: 18px; font-size: 15px; }
+  nav a { color: var(--ink-2); text-decoration: none; padding: 6px 0; border-bottom: 2px solid transparent; }
+  nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--ink); }
+  nav a:hover { color: var(--ink); }
+
+  main.wrap { padding-top: 32px; padding-bottom: 64px; min-height: 60vh; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 650; letter-spacing: -0.015em; line-height: 1.2; }
+
+  .foot { border-top: 1px solid var(--rule); color: var(--ink-2); font-size: 14px; }
+  .foot-row { padding-top: 20px; padding-bottom: 32px; }
+  .foot p { margin: 0 0 8px; }
+
+  .eyebrow { font: 500 12px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
+  .tag { font: 500 11px/1 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 8px; border-radius: 3px; border: 1px solid currentColor; white-space: nowrap; }
+  .tag.outils { color: var(--c-outils); }
+  .tag.dev { color: var(--c-dev); }
+  .tag.creation { color: var(--c-creation); }
+</style>

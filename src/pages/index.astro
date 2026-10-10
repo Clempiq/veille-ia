@@ -1,0 +1,31 @@
+---
+import Base from "../layouts/Base.astro";
+import Edition from "../components/Edition.astro";
+import { editions, shortDate } from "../lib/editions.js";
+const [latest, ...rest] = editions;
+const recent = rest.slice(0, 6);
+---
+<Base description={latest ? latest.intro.slice(0, 155) : undefined}>
+  <p class="pitch">Chaque matin, les actus IA des dernières 48 heures, triées et résumées en français. Trois thèmes : nouveaux outils, dev et produit, création de contenu.</p>
+  {latest && <Edition edition={latest} isHome />}
+  {recent.length > 0 && (
+    <section class="recent" aria-labelledby="recent-title">
+      <h2 id="recent-title">Éditions précédentes</h2>
+      <ul>
+        {recent.map((e) => (
+          <li><a href={`/edition/${e.date}`}><span class="d">{shortDate(e.date)}</span><span class="t">{e.items[0]?.title ?? "Journée calme"}</span><span class="n">{e.items.length} actu{e.items.length > 1 ? "s" : ""}</span></a></li>
+        ))}
+      </ul>
+    </section>
+  )}
+</Base>
+<style>
+  .pitch { color: var(--ink-2); font-size: 15px; margin: 0 0 28px; padding-bottom: 18px; border-bottom: 1px dashed var(--rule); }
+  .recent { margin-top: 56px; }
+  .recent h2 { font-size: 22px; margin: 0 0 8px; }
+  .recent ul { list-style: none; margin: 0; padding: 0; }
+  .recent a { display: grid; grid-template-columns: 90px 1fr auto; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--rule); color: var(--ink); text-decoration: none; align-items: baseline; }
+  .recent a:hover .t { text-decoration: underline; }
+  .d, .n { font: 500 13px/1.4 var(--mono); color: var(--ink-2); }
+  @media (max-width: 520px) { .recent a { grid-template-columns: 1fr; gap: 2px; } }
+</style>
