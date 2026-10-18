@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-18",
+  "window": "16 au 17 octobre 2026",
+  "calm": false,
+  "intro": "Une fenêtre dominée par les modèles ouverts : DeepSeek met à jour son modèle Flash et ouvre son moteur de recherche aux développeurs, Reflection publie un modèle de 501 milliards de paramètres sous licence permissive. Côté développement, l'actualité tourne autour de la sécurité des agents, avec un bac à sable rendu public par Perplexity et une faille critique dans un agent de code open source. Peu de nouveautés pour les créateurs vidéo, mais Meta recule sur une clause qui inquiétait éditeurs et pages professionnelles.",
+  "items": [
+    {
+      "angle": "outils",
+      "title": "DeepSeek publie V4.1-Flash-1017 en poids ouverts et ouvre son moteur de recherche aux développeurs",
+      "summary": "DeepSeek a mis en ligne le 17 octobre une nouvelle version de son modèle V4.1-Flash, disponible sur son site, son application, son API et en poids ouverts sur Hugging Face. L'éditeur annonce de meilleurs scores, des réponses plus courtes et un coût par tâche en forte baisse : environ 77 % sur son test de code agentique DeepSWE pour moins de 0,20 dollar par tâche. Nouveauté notable, des API Search et Fetch donnent accès à son moteur de recherche maison, à 0,75 dollar les 1 000 appels, avec un accès gratuit via certains outils de code jusqu'au 31 octobre. Tous les chiffres viennent de DeepSeek et aucun test indépendant n'était publié à la sortie.",
+      "why": "Un modèle ouvert bon marché, déjà branché sur Claude Code et Codex, peut faire chuter la facture des agents de code qui tournent en continu.",
+      "sources": [
+        { "name": "The Decoder", "url": "https://the-decoder.com/deepseek-v4-1-flash-1017-beats-larger-rivals-in-agentic-tasks-while-once-again-massively-cutting-per-task-costs/" },
+        { "name": "Hugging Face", "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017" }
+      ]
+    },
+    {
+      "angle": "outils",
+      "title": "Reflection AI sort Beam, un modèle ouvert de 501 milliards de paramètres annoncé sous Apache 2.0",
+      "summary": "La start-up américaine Reflection AI a publié le 16 octobre Beam, un modèle à mélange d'experts de 501 milliards de paramètres dont environ 23 milliards sont actifs à chaque jeton. Les poids sont téléchargeables sur Hugging Face en plusieurs formats, dont une version BF16 d'environ 1 To, et une API est proposée sur sa propre plateforme. Le pari affiché est d'utiliser moins de jetons par tâche plutôt que des jetons moins chers, avec une fenêtre de contexte annoncée à un million de jetons. Les résultats de tests et la licence sont déclarés par l'éditeur : mieux vaut vérifier la licence sur la fiche Hugging Face avant un usage commercial.",
+      "why": "Une alternative américaine aux grands modèles ouverts chinois, à évaluer pour qui veut héberger lui-même un modèle de code ou d'agent.",
+      "sources": [
+        { "name": "TechJack Solutions", "url": "https://techjacksolutions.com/ai-brief/reflection-ai-beam-501b-weights-live-apache-download/" },
+        { "name": "VKTR", "url": "https://www.vktr.com/ai-platforms/reflection-ai-unveils-beam-a-501b-open-weight-model/" }
+      ]
+    },
+    {
+      "angle": "outils",
+      "title": "Elorian lance Glimpse, un modèle qui revient sur l'image ou la vidéo pendant son raisonnement",
+      "summary": "Elorian, jeune société de Palo Alto fondée par un ancien chercheur de Google DeepMind, a présenté le 16 octobre Glimpse, son premier modèle, en préversion de recherche avec API et interface de discussion. Au lieu de lire une image une seule fois, le modèle peut y revenir en cours de route pour recadrer une zone, extraire des images d'une vidéo ou exécuter du code pour mesurer ce qu'il voit. Le tarif est de 0,60 dollar par million de jetons en entrée et 3 dollars en sortie, et il est aussi accessible via la passerelle IA de Vercel. Les performances annoncées, notamment sur la lecture de graphiques et la description de courtes vidéos, viennent des tests internes de l'entreprise.",
+      "why": "Pour analyser des graphiques, des captures ou des rushes vidéo, un modèle capable de zoomer lui-même peut éviter beaucoup d'erreurs de lecture.",
+      "sources": [
+        { "name": "TechCrunch", "url": "https://techcrunch.com/2026/10/16/elorians-first-ai-model-wants-to-reason-with-images-not-just-about-them/" }
+      ]
+    },
+    {
+      "angle": "dev",
+      "title": "Claude Code 2.1.302 : choix du modèle du mode auto, et la version autonome de Claude Design fermera le 14 décembre",
+      "summary": "La version 2.1.302 de Claude Code, datée du 16 octobre, ajoute une variable pour choisir le modèle qui sert de classifieur au mode auto côté client, et une option dans /config pour couper la compaction automatique des conversations inactives. Les sous-agents de type fork deviennent actifs par défaut dans le mode non interactif, le SDK, l'application de bureau et VS Code. La mise à jour affiche aussi un avertissement : le site autonome de Claude Design fermera au plus tard le 14 décembre 2026. Les systèmes de design se migrent vers les artefacts de Claude, mais les conversations et commentaires restés sur l'ancien site seront supprimés après la fermeture, et les liens publics cesseront de fonctionner.",
+      "why": "Les équipes qui ont des maquettes ou des systèmes de design dans l'ancien Claude Design ont un peu moins de deux mois pour les rapatrier.",
+      "sources": [
+        { "name": "Claude Code Docs", "url": "https://code.claude.com/docs/en/changelog" },
+        { "name": "Centre d'aide Claude", "url": "https://support.claude.com/en/articles/17440474-migrate-from-standalone-claude-design-to-claude" }
+      ]
+    },
+    {
+      "angle": "dev",
+      "title": "Perplexity rend open source SPACE, le bac à sable qui isole ses agents dans des micro machines virtuelles",
+      "summary": "Perplexity a publié le 16 octobre le code de SPACE, l'infrastructure qui fait tourner son système multi-agents Computer depuis juillet. Chaque agent travaille dans une petite machine virtuelle dotée de son propre système, tandis que les identifiants et l'accès réseau restent gérés à l'extérieur : l'agent peut utiliser des services autorisés sans jamais détenir les mots de passe. Des instantanés incrémentaux permettent de mettre une tâche en pause ou de tester deux approches en parallèle. Akamai, Crusoe et CoreWeave proposent déjà de l'héberger, et le gain de vitesse annoncé face à l'ancien fournisseur de Perplexity n'est pas vérifié de façon indépendante.",
+      "why": "Isoler un agent qui exécute du code est devenu un passage obligé, et une brique éprouvée en production évite de bricoler sa propre solution.",
+      "sources": [
+        { "name": "Techzine", "url": "https://www.techzine.eu/news/devops/145046/perplexity-makes-space-open-source-a-sandbox-for-ai-agents/" },
+        { "name": "Crypto Briefing", "url": "https://cryptobriefing.com/perplexity-open-sources-space-agent-sandbox/" }
+      ]
+    },
+    {
+      "angle": "dev",
+      "title": "Faille critique dans l'agent de code Archon : son API sans authentification permet d'exécuter des commandes à distance",
+      "summary": "Une faille notée critique (CVE-2026-111322) touche Archon, un outil open source qui pilote des agents de code, des versions 0.2.13 à 0.11.1. Son API de contrôle n'exige aucune authentification et écoute par défaut sur toutes les interfaces réseau ; comme l'agent tourne avec les vérifications de permission désactivées, n'importe qui sur le réseau peut lui faire exécuter des commandes sur la machine. Aucun correctif n'était confirmé au moment de la publication de l'alerte, entre le 15 et le 16 octobre. En attendant, il est conseillé de limiter l'API à l'adresse locale, de filtrer le port par pare-feu et de surveiller les processus lancés par Archon.",
+      "why": "Tout poste ou serveur qui fait tourner Archon sur un réseau partagé est exposé tant que l'API reste ouverte.",
+      "sources": [
+        { "name": "VulnCheck", "url": "https://www.vulncheck.com/advisories/archon-0.2.13-through-0.11.1-missing-authentication-via-api-control-api" },
+        { "name": "The Hacker Wire", "url": "https://www.thehackerwire.com/cve-2026-111322-archon-ai-agent-missing-authentication-leads-to-unauthenticated-rce/" }
+      ]
+    },
+    {
+      "angle": "dev",
+      "title": "Replit fait d'OpenAI le modèle par défaut de son agent, Claude reste au choix",
+      "summary": "Le patron de Replit, Amjad Masad, a déclaré le 16 octobre lors de la conférence TechCrunch Disrupt que la plateforme ne travaillait plus avec Anthropic, avant de préciser que les modèles d'OpenAI deviennent le choix par défaut de Replit Agent. Il invoque le coût, le partenariat signé en août et de meilleurs résultats sur ses tests internes pour créer des applications de zéro. Les modèles Claude restent sélectionnables, Replit se disant toujours neutre sur les modèles. Une source proche du dossier affirme toutefois que le partenariat avec Anthropic est toujours en place, la situation exacte reste donc floue.",
+      "why": "La plupart des utilisateurs gardent le réglage par défaut : les projets créés sur Replit risquent de se comporter différemment sans que personne ait rien changé.",
+      "sources": [
+        { "name": "TechCrunch", "url": "https://techcrunch.com/2026/10/17/replit-is-no-longer-working-with-anthropic-ceo-says/" }
+      ]
+    },
+    {
+      "angle": "creation",
+      "title": "Meta retire de ses conditions la clause qui l'autorisait à aspirer les sites des comptes pro pour entraîner son IA",
+      "summary": "Les nouvelles conditions commerciales de Meta, prévues pour le 30 octobre, prévoyaient que toute entreprise utilisant ses produits l'autorise à explorer les sites liés à son activité et à s'en servir pour entraîner ses produits, sans possibilité de refus. Des juristes y voyaient une porte ouverte à l'aspiration des sites d'éditeurs de presse et de créateurs disposant d'une page professionnelle. Le 17 octobre, Meta a retiré ce passage et affirme que ses règles d'exploration ne concernent désormais que ses produits publicitaires et professionnels. Le texte révisé n'a pas été cité en détail, et Meta assure que ses pratiques d'exploration n'ont jamais changé.",
+      "why": "Créateurs, médias et marques qui animent une page Facebook ou Instagram ne cèdent plus implicitement le contenu de leur site à l'entraînement de l'IA de Meta.",
+      "sources": [
+        { "name": "TechCrunch", "url": "https://techcrunch.com/2026/10/17/meta-removes-language-that-raised-scraping-and-ai-training-concerns/" },
+        { "name": "PPC Land", "url": "https://ppc.land/metas-new-terms-let-it-crawl-business-websites-to-train-ai-from-oct-30/" }
+      ]
+    }
+  ]
+}
