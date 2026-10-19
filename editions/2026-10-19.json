@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-19",
+  "window": "17 au 18 octobre 2026",
+  "calm": false,
+  "intro": "Un week-end calme côté lancements, sans nouveau modèle majeur ni grande annonce produit. L'actualité la plus utile concerne la sécurité : une fuite chez OpenCode a exposé des clés d'API de fournisseurs d'IA, avec des factures frauduleuses à la clé. Le reste de la fenêtre est fait d'un ajustement pratique chez Vercel pour suivre le coût des agents et d'une mobilisation d'éditeurs coréens sur l'usage des livres pour entraîner les modèles.",
+  "items": [
+    {
+      "angle": "dev",
+      "title": "Fuite chez OpenCode : des clés OpenAI, Anthropic et Google stockées dans la console ont été exposées",
+      "summary": "Anomaly, l'éditeur de l'agent de code OpenCode, a confirmé le 17 octobre qu'un système ancien en cours de retrait avait été consulté sans autorisation. Les clés d'API de fournisseurs tiers enregistrées dans les espaces de travail de la console ont pu fuiter, pour environ 1,4 % des utilisateurs, uniquement ceux qui avaient relié un fournisseur externe. Plusieurs victimes signalent des frais qu'elles n'ont pas engagés, de quelques centaines d'euros ou de dollars, sur leurs comptes Anthropic ou Google. L'entreprise relie l'incident à une vaste campagne de distillation, dit travailler avec les trois fournisseurs et présente l'incident comme toujours en cours. Les détails techniques restent limités.",
+      "why": "Toute équipe qui a confié une clé de fournisseur à la console OpenCode doit la révoquer, la remplacer et vérifier sa consommation récente, même sans avoir reçu d'email.",
+      "sources": [
+        { "name": "Notebookcheck", "url": "https://www.notebookcheck.net/OpenCode-hacked-users-urged-to-revoke-their-API-keys.1426957.0.html" },
+        { "name": "OrcaRouter", "url": "https://www.orcarouter.ai/blog/2026-10-17-opencode-console-breach-api-keys" }
+      ]
+    },
+    {
+      "angle": "dev",
+      "title": "Vercel AI Gateway regroupe ses journaux par session pour suivre le coût et le cache de chaque conversation d'agent",
+      "summary": "Depuis le 17 octobre, les journaux de la passerelle IA de Vercel regroupent les requêtes par session au lieu de les lister une à une. Chaque conversation affiche son nombre de tours, son coût, son taux de réussite du cache de prompt et l'agent de code à l'origine des appels. La nouveauté s'appuie sur l'affinité de session : les requêtes qui partagent un identifiant sont envoyées vers le même fournisseur, ce qui favorise la réutilisation du cache. Les économies de 50 à 80 % évoquées par certains comptes rendus viennent de tests de l'éditeur et dépendent beaucoup de la stabilité des prompts.",
+      "why": "Pour une équipe qui fait tourner des agents de code en continu, voir le coût et le cache conversation par conversation est le moyen le plus direct de repérer ce qui fait gonfler la facture.",
+      "sources": [
+        { "name": "daily.dev", "url": "https://daily.dev/posts/ai-gateway-logs-now-show-session-affinity-fgpmcb3bq" },
+        { "name": "TechBytes", "url": "https://techbytes.app/posts/vercel-ai-gateway-adds-session-affinity-for-stateful-ai-agents/" }
+      ]
+    },
+    {
+      "angle": "creation",
+      "title": "« No Books, No AI » : 158 organisations coréennes exigent que les entreprises d'IA déclarent les livres utilisés pour l'entraînement",
+      "summary": "Un appel national porté par une société savante de l'édition coréenne a été rendu public le 17 octobre, avec 158 organisations et 321 signataires individuels au 16 octobre. Il demande que les entreprises d'IA tiennent un registre des œuvres utilisées, de leur provenance et de la base légale de leur usage, et que les ayants droit puissent le vérifier. Le texte refuse que le silence d'un auteur vaille consentement et réclame des conditions de négociation équitables pour les petites maisons et les créateurs indépendants. L'appel vise l'ensemble du secteur, mais il fait suite aux révélations sur des centaines de milliers de livres coréens achetés pour Anthropic. Il n'a pour l'instant aucune valeur contraignante.",
+      "why": "La traçabilité des données d'entraînement devient une revendication collective des créateurs, et pourrait peser sur les conditions d'usage des outils de génération.",
+      "sources": [
+        { "name": "The New Publishing Standard", "url": "https://thenewpublishingstandard.com/2026/10/17/korean-publishers-ai-compensation-appeal/" },
+        { "name": "Seoul Economic Daily", "url": "https://en.sedaily.com/culture/2026/10/16/korean-publishers-demand-ai-firms-pay-for-books-used-in" }
+      ]
+    }
+  ]
+}
