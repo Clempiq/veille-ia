@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-20",
+  "window": "19 au 20 octobre 2026",
+  "calm": false,
+  "intro": "Un lundi dominé par la course au rapide et au pas cher : deux modèles conçus pour les agents arrivent avec des tarifs agressifs, et Cloudflare propose un modèle qui ne génère aucun texte. Côté infrastructure, Amazon veut faire tourner PyTorch sur ses puces sans réécriture. La fenêtre a aussi apporté une affaire d'instructions cachées chez WhatsApp et un rappel utile pour les équipes sur GitHub Copilot.",
+  "items": [
+    {
+      "angle": "outils",
+      "title": "Mercury 3, le modèle de diffusion d'Inception, passe à 1 million de jetons de contexte et dépasse 1 000 jetons par seconde",
+      "summary": "Inception a présenté le 19 octobre Mercury 3, son nouveau modèle de langage fondé sur la diffusion, une technique qui génère le texte par affinages successifs plutôt que mot après mot. L'éditeur annonce environ 1 068 jetons par seconde sur GPU Nvidia et une fenêtre de contexte portée à 1 million de jetons, contre 260 000 pour Mercury 2.5. Le tarif de lancement est de 0,10 dollar par million de jetons en entrée et 0,35 dollar en sortie, soit la moitié du prix normal (0,20 et 0,70). Le modèle est accessible par une API compatible OpenAI, sur OpenRouter, Baseten et Vercel AI Gateway, avec 100 millions de jetons offerts aux nouveaux comptes. Les comparaisons favorables face à GPT-6 Luna et Claude Haiku 5.5 viennent de l'éditeur seul, sans scores détaillés ni test indépendant pour l'instant.",
+      "why": "Pour les applications où la latence compte (autocomplétion, agents vocaux, interfaces temps réel), c'est une alternative crédible aux petits modèles classiques, à évaluer sur ses propres tâches.",
+      "sources": [
+        { "name": "Unite.AI", "url": "https://www.unite.ai/inception-releases-mercury-3-its-flagship-diffusion-llm/" },
+        { "name": "RuntimeWire", "url": "https://runtimewire.com/article/inception-mercury-3-diffusion-llm-launch" }
+      ]
+    },
+    {
+      "angle": "outils",
+      "title": "MiniMax sort M3.1 Flash, un modèle pour agents à 0,15 dollar le million de jetons, qui se cachait derrière « Space Bunny »",
+      "summary": "Le chinois MiniMax a lancé le 19 octobre M3.1 Flash, un modèle à mélange d'experts de 428 milliards de paramètres, dont environ 23 milliards actifs, avec 1 million de jetons de contexte et des entrées texte, image et vidéo. Il coûte 0,15 dollar par million de jetons en entrée et 0,60 en sortie, sans surcoût pour les longs contextes, et MiniMax revendique une vitesse trois fois supérieure à M3 et des tâches d'agent 70 % moins chères. Le modèle anonyme « Space Bunny », testé en discrétion, en était une version antérieure. Il est disponible sur l'API MiniMax, gratuitement avec limite sur OpenRouter et Vercel AI Gateway, et les poids sont promis pour le 23 octobre, licence non précisée. Les scores publiés sont ceux de l'éditeur, et le raisonnement ne peut pas être désactivé, ce qui alourdit les requêtes simples.",
+      "why": "Un prix plancher de plus pour faire tourner des agents en volume, avec la perspective de poids ouverts à vérifier d'ici quelques jours.",
+      "sources": [
+        { "name": "MarkTechPost", "url": "https://www.marktechpost.com/2026/10/19/minimax-m3-1-flash-release/" },
+        { "name": "SiliconANGLE", "url": "https://siliconangle.com/2026/10/19/minimax-launches-m3-1-flash-model-says-it-cuts-ai-agent-costs-by-70/" }
+      ]
+    },
+    {
+      "angle": "outils",
+      "title": "Des pages d'aide WhatsApp contenaient des consignes cachées pour l'IA, dont celle de ne pas orienter vers les autorités de protection des données",
+      "summary": "Selon des révélations publiées le 19 octobre, 80 des 545 pages d'aide de WhatsApp examinées contenaient au total 102 blocs d'instructions invisibles pour les visiteurs mais présents dans le code, destinés à l'assistant de support. L'une d'elles demandait de ne pas renvoyer vers une autorité de protection des données les personnes incapables de supprimer leur compte, une autre d'éviter de citer les textes juridiques quand un utilisateur évoque le RGPD ou des lois équivalentes. Ces blocs sont apparus entre juillet et septembre et ont tous été retirés entre le 15 et le 18 octobre. Meta explique qu'il s'agissait de consignes pour son chatbot, pas pour les utilisateurs, visant à éviter de donner des conseils juridiques.",
+      "why": "Un exemple concret de la façon dont un contenu web peut orienter discrètement les réponses d'une IA, à garder en tête pour quiconque publie ou consomme de la documentation lue par des agents.",
+      "sources": [
+        { "name": "TokenPost", "url": "https://www.tokenpost.com/news/technology/35093" },
+        { "name": "Digit", "url": "https://www.digit.in/news/general/whatsapps-meta-ai-chatbot-has-what-not-to-say-list-and-its-hidden-instructions-are-now-exposed-details.html" }
+      ]
+    },
+    {
+      "angle": "dev",
+      "title": "Amazon ouvre TorchNeuron à tous : du code PyTorch qui tourne sur ses puces Trainium sans réécriture",
+      "summary": "Amazon a ouvert le 19 octobre la bêta publique de TorchNeuron, un backend natif qui permet d'exécuter du code PyTorch sur ses puces d'IA Trainium après un simple changement de configuration, là où il fallait jusqu'ici passer par des interfaces propres à Amazon. Le projet est publié en open source à l'occasion de la PyTorch Conference qui s'ouvre ce mardi à San Jose. Plus de 30 entreprises l'ont testé en bêta privée, et Deepgram affirme traiter environ 60 % d'audio en plus par dollar qu'avec ses GPU. Amazon dit le tester chaque nuit sur plus de 100 000 modèles Hugging Face, sans publier les résultats. Les chiffres de performance viennent d'Amazon et de ses partenaires.",
+      "why": "Pour les équipes qui entraînent ou servent des modèles, la dépendance à l'écosystème Nvidia pourrait se réduire si la promesse de compatibilité tient en pratique.",
+      "sources": [
+        { "name": "GeekWire", "url": "https://www.geekwire.com/2026/amazon-challenges-nvidias-software-advantage-with-new-tool-for-its-ai-chips/" },
+        { "name": "About Amazon", "url": "https://www.aboutamazon.com/news/innovation-at-amazon/torchneuron-pytorch-aws-trainium-chips-ai" }
+      ]
+    },
+    {
+      "angle": "dev",
+      "title": "Cloudflare lance Clairic, un modèle d'extraction qui renvoie des valeurs typées sans générer de texte",
+      "summary": "Cloudflare a présenté le 19 octobre Clairic, premier d'une catégorie qu'il appelle « System One » : on lui fournit un texte (et jusqu'à quatre images) avec une liste de champs typés, et il renvoie directement des nombres, dates, listes, estimations ou prévisions, accompagnés d'un score de confiance. Tous les champs sont traités en une seule passe, sans jetons de raisonnement ni de sortie facturés. Dans une démonstration sur des déclarations de sinistre, la chaîne Clairic plus LLM est 3,2 fois plus rapide et 49 % moins chère qu'une chaîne tout LLM. Le modèle est en préversion sur Workers AI, des poids ouverts sont promis sans date. Cloudflare prévient lui-même que les calculs en plusieurs étapes restent peu fiables et que les prévisions sont basiques.",
+      "why": "L'extraction de données structurées est l'une des tâches les plus courantes des agents et des automatisations no-code, et ce type de modèle peut en réduire fortement le coût et la variabilité.",
+      "sources": [
+        { "name": "Blog Cloudflare", "url": "https://blog.cloudflare.com/clairic-extraction-model/" },
+        { "name": "PPC Land", "url": "https://ppc.land/cloudflares-clairic-model-cuts-ai-pipeline-cost-49-in-its-own-test/" }
+      ]
+    },
+    {
+      "angle": "dev",
+      "title": "GitHub Copilot retire GPT-5.5, GPT-5.4, Gemini 3.7 Flash et Grok 4.5 : les administrateurs doivent activer les remplaçants",
+      "summary": "Depuis le 19 octobre, six modèles ne sont plus proposés dans la plupart des usages de GitHub Copilot (chat, modes agent et ask, éditions en ligne, complétion) : GPT-5.5, GPT-5.4, GPT-5.4 mini, GPT-5 mini, Gemini 3.7 Flash et Grok 4.5. GitHub recommande de passer à GPT-6.1 Sol, GPT-6 Luna, Gemini 3.8 Flash ou Grok 4.7 selon le cas. Pour Copilot Enterprise, ces remplaçants doivent parfois être activés dans les politiques de modèles avant d'apparaître dans le sélecteur de VS Code et de github.com. Le retrait avait été annoncé le 18 septembre.",
+      "why": "Les workflows et intégrations qui ciblaient un de ces modèles par son nom peuvent casser du jour au lendemain, d'où l'intérêt de vérifier les configurations d'équipe.",
+      "sources": [
+        { "name": "GitHub Changelog", "url": "https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026/" }
+      ]
+    },
+    {
+      "angle": "creation",
+      "title": "Instagram promet plus d'étiquettes sur les contenus IA et veut freiner la copie de créateurs, sans calendrier",
+      "summary": "Lors de sa session de questions hebdomadaire relayée le 19 octobre, le patron d'Instagram Adam Mosseri a indiqué que la plateforme ne réduit pas la portée d'un contenu au seul motif qu'il est généré par IA, et qu'une interdiction ne serait pas réaliste. Il a en revanche reconnu qu'il fallait mieux empêcher l'usage de l'IA pour copier le travail des créateurs, et annoncé davantage d'étiquettes sur les contenus IA ainsi que des incitations à les signaler volontairement. Il juge les outils de réclamation de droits d'auteur insuffisants, beaucoup de créateurs (humoristes, danseurs) n'ayant rien déposé et certains acteurs malveillants abusant des signalements. Aucune date ni mesure chiffrée n'a été donnée.",
+      "why": "Pour les créateurs dont les formats sont recopiés par des comptes automatisés, c'est un signal de priorité côté Meta, mais encore sans outil concret.",
+      "sources": [
+        { "name": "Social Media Today", "url": "https://www.socialmediatoday.com/news/instagram-chief-says-stronger-ai-slop-prevention-is-needed/833416/" }
+      ]
+    }
+  ]
+}
