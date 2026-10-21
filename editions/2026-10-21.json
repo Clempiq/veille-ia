@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-21",
+  "window": "19 au 21 octobre 2026",
+  "calm": false,
+  "intro": "Une fenêtre tournée vers les outils du quotidien plus que vers les grands modèles. ChatGPT permet de verrouiller des conversations, Gemini s'installe dans la voiture avec les données personnelles de ses utilisateurs, et Notion revoit en profondeur ses agents et sa facturation. Côté développeurs, OpenAI allonge la durée de son cache et DeepSeek ouvre le moteur qui fait tourner son API. La création reste discrète, avec une seule annonce vidéo à suivre de près.",
+  "items": [
+    {
+      "angle": "outils",
+      "title": "ChatGPT permet de verrouiller des conversations par code PIN ou biométrie, sans chiffrement supplémentaire",
+      "summary": "OpenAI a commencé le 20 octobre le déploiement des conversations verrouillées dans ChatGPT, sur les offres gratuites comme payantes (Go, Plus, Pro, Business, Enterprise, Edu). Une conversation peut être protégée par un code à quatre chiffres ou par Face ID et Touch ID, puis disparaît de l'historique et de la recherche pour rejoindre une section dédiée. Cette section dispose de sa propre mémoire, qui n'alimente pas la mémoire habituelle. Les limites sont nettes : aucun chiffrement de bout en bout, aucune modification de la durée de conservation ni du réglage d'entraînement, et réinitialiser le code efface définitivement toutes les conversations verrouillées. La fonction ne s'applique pas aux conversations temporaires, partagées, de groupe ou archivées.",
+      "why": "Utile pour isoler des échanges sensibles sur un appareil partagé, à condition de ne pas y voir une protection des données côté serveur.",
+      "sources": [
+        { "name": "TechCrunch", "url": "https://techcrunch.com/2026/10/20/chatgpt-now-lets-you-lock-your-chats/" },
+        { "name": "Mezha", "url": "https://mezha.net/eng/news/2c1ff2b7_openai_adds_pin-locked_chats" }
+      ]
+    },
+    {
+      "angle": "outils",
+      "title": "Gemini arrive dans Android Auto avec l'accès à Gmail, Agenda et Maps, mais pas en Europe ni au Royaume-Uni",
+      "summary": "Google a lancé le 20 octobre la fonction Personal Intelligence de Gemini dans Android Auto. L'assistant peut puiser dans Gmail, Google Agenda, YouTube, Maps ou l'historique de recherche pour répondre en conduisant, par exemple en signalant le retard d'un vol inscrit à l'agenda pendant le trajet vers l'aéroport. La fonction est soumise à un consentement explicite et l'utilisateur choisit les applications connectées. Elle est réservée aux comptes Google personnels de plus de 18 ans, exclut les comptes Workspace, et n'est pas proposée dans l'Espace économique européen, en Suisse, au Royaume-Uni ni au Nigeria. Les voitures équipées de Google intégré suivront dans les prochains mois.",
+      "why": "Un aperçu de l'assistant contextuel que Google pousse partout, avec une absence européenne qui illustre le poids de la réglementation sur l'accès aux outils.",
+      "sources": [
+        { "name": "TechCrunch", "url": "https://techcrunch.com/2026/10/20/google-is-bringing-a-more-personal-version-of-its-gemini-ai-assistant-to-your-car" },
+        { "name": "Android Pure", "url": "https://www.androidpure.com/gemini-personal-intelligence-android-auto/" }
+      ]
+    },
+    {
+      "angle": "dev",
+      "title": "OpenAI propose un cache de prompt de 12 heures dans l'API Responses, avec une écriture facturée 2,5 fois",
+      "summary": "Depuis le 20 octobre, l'API Responses d'OpenAI accepte une durée de cache de 12 heures en plus des 30 minutes par défaut, pour GPT-5.6 et les modèles suivants. Le réglage se fait par requête, et il est possible de ne donner cette durée longue qu'à un segment précis du prompt. L'écriture en cache coûte 2,5 fois le prix normal des jetons d'entrée, contre 1,25 fois pour l'option courte, tandis que la lecture reste à 0,1 fois le tarif d'entrée, et 0,05 fois sur GPT-6.1 Sol. L'intérêt dépend donc du nombre de réutilisations : pour un préfixe lu peu souvent, l'option longue peut coûter plus cher.",
+      "why": "Pour les agents et les applications qui renvoient les mêmes instructions et outils à plusieurs heures d'intervalle, c'est un levier direct sur la facture.",
+      "sources": [
+        { "name": "OpenAI, changelog", "url": "https://developers.openai.com/docs/changelog" },
+        { "name": "OpenAI, guide du cache", "url": "https://developers.openai.com/api/docs/guides/prompt-caching" }
+      ]
+    },
+    {
+      "angle": "dev",
+      "title": "DeepSeek ouvre DeepInfer, le moteur d'inférence de son API, sous licence Apache 2.0",
+      "summary": "DeepSeek a publié le 20 octobre DeepInfer, le logiciel qui sert ses modèles en production, sous licence Apache 2.0. Il ne prend en charge pour l'instant que DeepSeek-V4.1-Flash, sur les GPU Nvidia Blackwell (SM100) et les puces Huawei Ascend 950, sans support annoncé des générations Nvidia plus anciennes. Il intègre un décodage spéculatif qui propose cinq jetons à la fois et une technique qui réduirait fortement le calcul de préremplissage. La gestion du cache et la répartition de charge ne sont pas publiées, car trop liées à l'infrastructure interne. Les gains annoncés, de 4 à 7 % de débit, viennent de DeepSeek seul.",
+      "why": "Un rare accès au code de production d'un grand fournisseur d'API, qui intéresse surtout les équipes qui hébergent elles-mêmes des modèles ouverts sur du matériel récent.",
+      "sources": [
+        { "name": "SiliconANGLE", "url": "https://siliconangle.com/2026/10/20/deepseek-open-sources-deepinfer-the-inference-framework-behind-its-production-services/" },
+        { "name": "The New Stack", "url": "https://thenewstack.io/deepseek-deepinfer-huawei-nvidia/" }
+      ]
+    },
+    {
+      "angle": "dev",
+      "title": "Les agents Notion peuvent travailler plus de 24 heures sur une tâche et passent à un système de crédits en deux niveaux",
+      "summary": "Notion a annoncé le 19 octobre une refonte de ses agents : une même tâche peut désormais durer plus de 24 heures, contre cinq minutes auparavant. Son routeur Auto, qui choisit le modèle, donnerait des résultats proches des modèles haut de gamme pour environ 90 % de coût en moins, selon les tests internes de Notion. La facturation change aussi : chaque siège Business ou Enterprise reçoit 1 500 crédits Standard par mois quand Notion choisit le modèle, et 500 crédits Select quand l'utilisateur le choisit ou lance des agents personnalisés. Le système s'applique déjà aux nouveaux clients et sera étendu aux clients existants le 2 novembre.",
+      "why": "Les équipes produit qui automatisent leur documentation et leur suivi dans Notion doivent revoir leurs usages avant la bascule de novembre.",
+      "sources": [
+        { "name": "Notion", "url": "https://www.notion.com/blog/notion-ai-more-for-less" },
+        { "name": "Notion, notes de version", "url": "https://www.notion.com/en-gb/releases/2026-10-19" }
+      ]
+    },
+    {
+      "angle": "dev",
+      "title": "Claude Code ajoute des niveaux de revue de code et une configuration guidée du mode automatique",
+      "summary": "Les versions 2.1.304 et 2.1.305 de Claude Code, apparues le 20 octobre, apportent trois niveaux de revue de code (rapide, standard, approfondie) que les propriétaires peuvent fixer par organisation ou par dépôt. Une commande /auto-mode-setup guide le réglage du mode automatique selon le projet, et une autre compare la configuration d'un agent Managed Agents aux recommandations de sécurité d'Anthropic, sans rien modifier. Les abonnés Pro et Max sont prévenus quand reprendre une ancienne conversation consommerait une grande part de leur quota sur cinq heures. Point de vigilance : la nouvelle option sandbox.allowNestedUserNamespaces permet, d'après le changelog lui-même, de contourner les protections de fichiers du bac à sable.",
+      "why": "Régler la profondeur de revue par dépôt permet d'arbitrer entre coût et rigueur, et l'option de bac à sable mérite d'être laissée désactivée par défaut.",
+      "sources": [
+        { "name": "Releasebot", "url": "https://releasebot.io/updates/anthropic/claude-code" }
+      ]
+    },
+    {
+      "angle": "creation",
+      "title": "VideoGen présente Model 1, qui promet des vidéos de 10 minutes en plusieurs plans avec son, en accès restreint",
+      "summary": "La start-up VideoGen, soutenue par Y Combinator, a dévoilé le 20 octobre Model 1, son premier modèle de génération vidéo. Il produirait des vidéos de plusieurs plans jusqu'à 10 minutes à partir d'un texte ou d'images, avec jusqu'à 16 images de référence, en planifiant le récit, les dialogues et le découpage tout en gardant personnages et décors cohérents. Le son est généré en même temps que l'image et les sorties portent un filigrane invisible. L'accès est pour l'instant limité à des partenaires privés, le tarif final n'est pas fixé et aucune évaluation indépendante n'existe encore. Une enveloppe d'un million de dollars de crédits gratuits est ouverte aux candidatures jusqu'à fin 2026.",
+      "why": "Si les promesses se confirment, la vidéo longue générée d'un bloc intéresse directement les chaînes YouTube narratives, mais il faut attendre des tests réels.",
+      "sources": [
+        { "name": "The Manila Times (GlobeNewswire)", "url": "https://www.manilatimes.net/2026/10/21/tmt-newswire/globenewswire/videogen-unveils-model-1-its-first-ai-video-generation-model-and-1-million-in-free-ai-credits/2450129" }
+      ]
+    }
+  ]
+}
