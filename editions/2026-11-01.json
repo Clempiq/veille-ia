@@ -1,0 +1,212 @@
+{
+  "date": "2026-11-01",
+  "window": "25 au 31 octobre 2026",
+  "calm": false,
+  "intro": "Une semaine dominée par les outils de développement : GitHub a fait de Copilot un chef d'orchestre de modèles à sa conférence Universe, pendant qu'OpenAI cassait le prix du travail d'agent avec GPT-6.1 Terra et que Mistral livrait enfin les poids de son très grand modèle. Côté web, les principaux laboratoires se sont alignés sur un signal commun pour refuser l'entraînement, et Google ouvre Gemini aux apps tierces via MCP. La création reste plus calme, portée surtout par le son.",
+  "items": [
+    {
+      "angle": "outils",
+      "title": "OpenAI sort GPT-6.1 Terra, un modèle d'agent à 1 et 5 dollars le million de jetons, et double les quotas Codex des offres Pro",
+      "summary": "Disponible depuis le 26 octobre dans l'API (gpt-6.1-terra) et dans ChatGPT Work et Codex, mais pas dans le chat classique, Terra vise le travail d'agent courant : vision, utilisation d'ordinateur et volume. Il coûte 1 dollar le million de jetons en entrée et 5 en sortie, soit moitié moins que la génération précédente, et OpenAI le dit au niveau de GPT-6 Astra sur Agents' Last Exam pour un dixième du prix. L'éditeur recommande toujours Sol ou Astra pour le code complexe. Le 29 octobre, OpenAI a aussi doublé les quotas Work et Codex des offres Pro 100, Pro 500 et Business Premium, et annulé la baisse prévue pour Pro 200. La plupart des scores viennent d'OpenAI ; Artificial Analysis mesure un gain réel mais plus modeste.",
+      "why": "Pour les équipes qui font tourner des agents en continu, le coût par tâche baisse nettement sans changer de fournisseur.",
+      "sources": [
+        {
+          "name": "VKTR",
+          "url": "https://www.vktr.com/ai-platforms/openais-cheapest-path-to-flagship-performance-is-gpt61-terra/"
+        },
+        {
+          "name": "AI Magazine",
+          "url": "https://aimagazine.com/news/how-openais-gpt-6-1-terra-is-much-faster-and-50-cheaper"
+        },
+        {
+          "name": "Releasebot (notes OpenAI)",
+          "url": "https://releasebot.io/updates/openai"
+        }
+      ]
+    },
+    {
+      "angle": "dev",
+      "title": "GitHub Universe : Copilot Fusion choisit les modèles à votre place, et les agents ouvrent déjà plus de 40 % des pull requests",
+      "summary": "Annoncé le 28 octobre, Copilot Fusion répartit chaque étape d'une tâche de code entre plusieurs modèles, avec trois niveaux d'effort (Standard, High, Max) et une liste de modèles autorisés fixée par l'administrateur. GitHub affirme que Fusion Max arrive à deux points de Claude Opus 5.5 Max sur l'indice Coding Agent d'Artificial Analysis pour moitié moins cher, un chiffre non vérifié de façon indépendante. L'accès commence par les entreprises via l'équipe commerciale, le libre-service est annoncé plus tard. Le même jour, le rapport Octoverse indique que plus de 40 % des pull requests démarraient en septembre par un brouillon d'agent, contre 17 % en mars, et ajoute 17,9 milliards de pushs sur un an.",
+      "why": "Le choix du modèle devient un réglage de plateforme, ce qui change la façon de budgéter et d'évaluer les outils de code.",
+      "sources": [
+        {
+          "name": "The Next Web",
+          "url": "https://thenextweb.com/news/github-universe-copilot-fusion-octoverse-agents"
+        },
+        {
+          "name": "GitHub Changelog",
+          "url": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion?from=bd_signal"
+        },
+        {
+          "name": "GitHub Blog (Octoverse)",
+          "url": "https://github.blog/news-insights/octoverse/octoverse-commits-pushes-reach-new-highs-in-2026-as-developers-build-with-agents/"
+        }
+      ]
+    },
+    {
+      "angle": "outils",
+      "title": "Mistral publie les poids de Large 4, un modèle ouvert d'environ 1 000 milliards de paramètres taillé pour le code et la cybersécurité",
+      "summary": "Après un mois de préversion par API modérée, Mistral a mis les poids de Large 4 sur Hugging Face cette semaine. Ce modèle à experts compte environ 1 000 milliards de paramètres, dont une cinquantaine de milliards actifs, lit texte et images et répond en texte et en code. Une version quantifiée tourne sur quatre GPU Nvidia B200 ou B300 : on reste sur du serveur, pas du poste de travail. Mistral annonce 41 % sur Terminal-Bench 4.0 et 79 % sur CyberGym, au niveau des meilleurs modèles ouverts chinois, mais ces chiffres sont les siens. La licence n'est plus Apache 2.0 comme pour Large 3, et des versions réduites sont promises sans date.",
+      "why": "Un modèle ouvert européen de premier plan permet d'auditer ou d'héberger soi-même un outil de code ou de sécurité sensible.",
+      "sources": [
+        {
+          "name": "Mistral AI",
+          "url": "https://mistral.ai/news/mistral-large-4-oss/"
+        },
+        {
+          "name": "The Next Web",
+          "url": "https://thenextweb.com/news/mistral-large-4-open-weights-release"
+        },
+        {
+          "name": "The New Stack",
+          "url": "https://thenewstack.io/mistral-large-4-weights/"
+        }
+      ]
+    },
+    {
+      "angle": "creation",
+      "title": "Google, Microsoft, OpenAI et Anthropic s'engagent à respecter un même signal robots.txt pour refuser l'entraînement des IA",
+      "summary": "Le 30 octobre, les quatre groupes ont soutenu un brouillon IETF qui ajoute un groupe « __usage_ai-training » dans robots.txt pour dire, chemin par chemin, si un contenu peut servir à entraîner un modèle génératif. Le signal porte sur l'usage, pas sur l'exploration, et ne touche pas le classement dans Google ou Bing. Les calendriers diffèrent : Microsoft l'applique à partir du 1er février 2027 avec un réglage séparé pour l'usage dans les réponses, Google vise 2027 en le rattachant à Google-Extended, OpenAI parle des prochains mois. Réserves : le texte n'a pas le statut de norme, il est volontaire, ne couvre pas les contenus déjà collectés, et Meta, Amazon et Apple ne se sont pas engagés.",
+      "why": "Créateurs, blogs et médias auront bientôt une seule ligne à écrire pour exclure leurs contenus de l'entraînement chez quatre acteurs majeurs.",
+      "sources": [
+        {
+          "name": "PPC Land",
+          "url": "https://ppc.land/google-microsoft-openai-and-anthropic-back-one-ai-training-opt-out/"
+        },
+        {
+          "name": "Blog Bing",
+          "url": "https://blogs.bing.com/search/2026/10/your-content-your-choice-clearer-preferences-for-training-and-grounding/"
+        },
+        {
+          "name": "Search Engine Roundtable",
+          "url": "https://www.seroundtable.com/microsoft-bing-ai-controls-42429.html"
+        }
+      ]
+    },
+    {
+      "angle": "dev",
+      "title": "Google ouvre une plateforme pour brancher n'importe quelle app sur Gemini et la recherche via MCP, en préversion aux États-Unis",
+      "summary": "Présentée le 28 octobre, la Connected Apps Platform permet à une entreprise d'inscrire sa propre app connectée, qui apparaîtra dans l'app Gemini, dans la recherche Google ou dans les deux. L'intégration passe par un serveur MCP hébergé dans le cloud ou par les API AppFunctions d'Android, puis par une console où l'on teste, soumet et suit le trafic, la latence et les erreurs. Gemini compte déjà plus de 50 apps connectées (Adobe, Peloton, Canva côté recherche) et les apps connectées arrivent dans la recherche dans les prochaines semaines. L'accès se fait sur liste d'attente, réservé aux développeurs américains, sans date d'ouverture plus large.",
+      "why": "Être présent dans les réponses de Gemini devient un canal d'acquisition à part entière, construit sur MCP.",
+      "sources": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/10/28/as-ai-agents-reshape-the-web-google-opens-gemini-and-search-to-more-apps/"
+        },
+        {
+          "name": "Android Headlines",
+          "url": "https://www.androidheadlines.com/2026/10/google-gemini-connected-apps-platform-preview.html"
+        }
+      ]
+    },
+    {
+      "angle": "dev",
+      "title": "GitHub Agentic Workflows passe en disponibilité générale : des agents décrits en Markdown qui tournent dans GitHub Actions",
+      "summary": "Depuis le 28 octobre, ce projet open source de GitHub Next est disponible sur les offres Free, Team et Enterprise. On décrit en langage naturel une automatisation (tri des tickets, analyse d'un échec de CI, mise à jour de la doc, écriture de tests), puis l'outil la compile en YAML Actions classique. Les agents ont des droits en lecture seule par défaut, tournent dans un conteneur isolé derrière un pare-feu dédié, et une tâche de détection de menaces passe sur chaque modification avant application. La commande gh aw forecast estime la dépense en crédits IA. Le moteur par défaut, Copilot CLI, exige une licence Copilot, et les exécutions consomment des minutes Actions.",
+      "why": "Les petites corvées de maintenance d'un dépôt peuvent être confiées à un agent sans quitter l'outillage CI existant.",
+      "sources": [
+        {
+          "name": "GitHub Changelog",
+          "url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available?from=bd_signal"
+        }
+      ]
+    },
+    {
+      "angle": "dev",
+      "title": "Claude Enterprise ajoute des rapports de productivité et des budgets par équipe, que Claude Code prend en charge dans la foulée",
+      "summary": "Le 28 octobre, Anthropic a ouvert à tous les clients Claude Enterprise les Smart Reports, qui croisent données d'usage et sondages internes pour montrer ce qu'une équipe a produit, ce que cela a coûté et où les flux se grippent, ainsi que des budgets mensuels mutualisés par groupe. Anthropic précise que ces rapports ne doivent pas servir à évaluer des personnes. Côté outil, Claude Code 2.1.314 (30 octobre) permet de bloquer toute écriture hors des dossiers de travail et compacte seul les longues sessions inactives, et la 2.1.316 (31 octobre) applique les budgets de groupe et ajoute un réglage d'effort pour les sous-agents.",
+      "why": "Les responsables qui financent des licences IA disposent enfin d'outils pour plafonner et justifier la dépense.",
+      "sources": [
+        {
+          "name": "The Outpost",
+          "url": "https://theoutpost.ai/news-story/anthropic-rolls-out-new-tools-to-track-ai-spending-and-roi-for-claude-enterprise-customers-32816/"
+        },
+        {
+          "name": "Havoptic (journal Claude Code)",
+          "url": "https://www.havoptic.com/releases/claude-code/2026/10"
+        }
+      ]
+    },
+    {
+      "angle": "outils",
+      "title": "Gemini sait désormais modifier les fichiers qu'il crée et retoucher une présentation Slides entière en une consigne",
+      "summary": "Depuis le 29 octobre, l'app Gemini ne se contente plus de générer des documents, tableurs, présentations, PDF ou fichiers de code : elle les affiche et les modifie dans la conversation, pour tous les comptes et dans toutes les langues de l'app. L'édition des PDF marche sur web et mobile, les autres formats seulement sur le web. Le 30 octobre, Gemini dans Google Slides a appris à restyler ou condenser plusieurs diapositives d'un coup, en gardant des slides natives modifiables et l'historique des versions. Cette seconde fonction est réservée aux offres Workspace payantes et Google AI Pro ou Ultra, en anglais seulement au lancement.",
+      "why": "Pour qui prépare des supports au quotidien, la boucle génération puis retouche se fait sans quitter Gemini.",
+      "sources": [
+        {
+          "name": "Google Workspace Updates",
+          "url": "https://workspaceupdates.googleblog.com/2026/10"
+        }
+      ]
+    },
+    {
+      "angle": "dev",
+      "title": "Nvidia ouvre Nemotron 3.5 Transcribe, un modèle de transcription en 40 langues pilotable par consigne",
+      "summary": "Publié le 28 octobre avec des poids ouverts et une licence qui autorise l'usage commercial, le modèle transcrit 40 langues, en traduit 31 depuis ou vers l'anglais, distingue jusqu'à huit locuteurs et répond à des questions sur un enregistrement d'une heure maximum. On peut lui demander une transcription propre ou mot à mot, ou lui fournir un vocabulaire métier. Il tient sur une seule puce Nvidia, des cartes Jetson aux GPU de centre de données. Nvidia le classe premier des modèles ouverts sur le classement anglais de Hugging Face, chiffre maison, et il vise l'audio enregistré, pas le temps réel. Le jeu de données Granary v2 (463 000 heures, 48 langues) l'accompagne.",
+      "why": "Sous-titrage, comptes rendus et recherche dans des réunions deviennent faisables en local avec un modèle ouvert.",
+      "sources": [
+        {
+          "name": "The Next Web",
+          "url": "https://thenextweb.com/news/nvidia-nemotron-3-5-transcribe-granary-v2-open-speech"
+        }
+      ]
+    },
+    {
+      "angle": "creation",
+      "title": "ElevenLabs lance SFX v3, qui respecte mieux plusieurs sons décrits dans une même consigne",
+      "summary": "Sorti le 29 octobre, le nouveau modèle de bruitage d'ElevenLabs suit mieux les consignes qui mélangent plusieurs événements sonores, de sorte que davantage de sons demandés se retrouvent dans le résultat. Il gère aussi mieux les prompts qui associent une phrase musicale ou une voix à une ambiance, et produit moins d'artefacts sur les gongs, carillons et sifflets. SFX v3 est disponible dans ElevenCreative (onglet Sound Effects, Flows, Studio, éditeur musical), dans l'application mobile et dans l'API. Les gains sont décrits par rapport à la v2 sans être chiffrés, et l'éditeur ne précise ni durée maximale ni tarif.",
+      "why": "Les monteurs de vidéos courtes peuvent produire un habillage sonore complet à partir d'une seule description.",
+      "sources": [
+        {
+          "name": "ElevenLabs",
+          "url": "https://elevenlabs.io/blog/sound-effects-v3"
+        },
+        {
+          "name": "Creators Toolbox",
+          "url": "https://creatorstoolbox.com/blog/elevenlabs-sfx-v3"
+        }
+      ]
+    },
+    {
+      "angle": "outils",
+      "title": "La saisie automatique de Chrome va chercher numéros de commande et réservations dans Gmail grâce à Gemini",
+      "summary": "Annoncée le 28 octobre, la saisie automatique enrichie de Chrome s'appuie désormais sur Gemini et la fonction Personal Intelligence pour retrouver dans Gmail un numéro de commande, un suivi de colis ou les détails d'un vol, et propose la valeur avec la mention « Suggested by Gemini ». Le déploiement commence aux États-Unis sur ordinateur, Android et iOS, uniquement pour les utilisateurs de Gemini dans Chrome ayant activé Personal Intelligence, et la fonction se coupe dans les réglages. Google assure que les données sensibles sont chiffrées, sans détailler la durée de conservation ni l'étendue de l'accès à la boîte mail.",
+      "why": "L'assistant du navigateur lit maintenant la messagerie, un gain de temps qui pose aussi une vraie question de confidentialité.",
+      "sources": [
+        {
+          "name": "Droid Life",
+          "url": "https://www.droid-life.com/2026/10/28/chromes-enhanced-autofill-gets-geminis-personal-intelligence-injection/"
+        },
+        {
+          "name": "Blog Google",
+          "url": "https://blog.google/products-and-platforms/products/chrome/enhanced-autofill-gmail/"
+        }
+      ]
+    },
+    {
+      "angle": "dev",
+      "title": "n8n 2.46 : les agents peuvent utiliser Claude via Microsoft Foundry et répondre dans Teams",
+      "summary": "Publiée le 27 octobre, la version 2.46.0 de n8n permet aux agents d'utiliser les déploiements Claude de Microsoft Foundry, configurables depuis l'Agent Builder et facturés selon le modèle servi. Elle ajoute un canal d'agent Microsoft Teams, une option pour que les agents Slack ne répondent que lorsqu'on les mentionne, et l'inscription des serveurs n8n Connect dans le registre MCP. Les traces des agents incluent maintenant les attributs OpenTelemetry GenAI (fournisseur, identifiant d'agent), et les arrêts déclenchés par un plafond de budget apparaissent dans la chronologie des sessions. Plusieurs correctifs touchent la compatibilité avec les modèles compatibles OpenAI.",
+      "why": "Les équipes no-code en environnement Microsoft peuvent brancher Claude et Teams sans passer par du code.",
+      "sources": [
+        {
+          "name": "Releasebot (notes n8n)",
+          "url": "https://releasebot.io/updates/n8n"
+        }
+      ]
+    },
+    {
+      "angle": "creation",
+      "title": "Runway permet de publier une chaîne de génération construite en nœuds comme un point d'accès API versionné",
+      "summary": "Le 26 octobre, Runway a documenté ses Workflows côté API : une chaîne de plusieurs étapes montée sous forme de graphe dans l'application Runway peut être publiée comme un point d'accès versionné, puis lancée en entier par une seule requête. Le 27 octobre, les modèles vidéo Seedance 2.0, 2.0 Fast et 2.0 Mini disponibles via l'API ont reçu une option de débit élevé qui garde plus de détails et moins d'artefacts de compression, au même tarif mais avec des fichiers plus lourds. Il s'agit de nouveautés de la documentation développeur, sans annonce produit grand public.",
+      "why": "Un studio ou un créateur peut industrialiser une recette vidéo validée à la main et l'appeler depuis ses propres outils.",
+      "sources": [
+        {
+          "name": "Runway API Changelog",
+          "url": "https://docs.dev.runwayml.com/api-details/api_changelog/"
+        }
+      ]
+    }
+  ]
+}
